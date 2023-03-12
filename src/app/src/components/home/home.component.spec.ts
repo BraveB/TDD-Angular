@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { DialogService } from '../../services/dialog.service';
 import { HomeComponent } from './home.component';
+import data from '../../../../assets/homes.json';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -25,28 +26,11 @@ describe('HomeComponent', () => {
     component = fixture.componentInstance;
     dataService = TestBed.get(DataService);
     dialogService = TestBed.get(DialogService);
-    dataService.getHomes$.and.returnValue(of([
-      {
-        title:"Home 1",
-        image:"assets/listing.jpg",
-        location:"new york"
-      },
-      {
-        title:"Home 2",
-        image:"assets/listing.jpg",
-        location:"boston"
-      },
-      {
-        title:"Home 3",
-        image:"assets/listing.jpg",
-        location:"chicago"
-      }
-    ]));
+    dataService.getHomes$.and.returnValue(of(data));
     fixture.detectChanges();
   });
 
   it('should show homes', () => {
-
     expect(fixture.nativeElement.querySelectorAll('[data-test="home"]').length).toBe(3);
   });
   it('should show home info', () => {

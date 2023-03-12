@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.homes$ = this.dataService.getHomes$();
   }
-  openDialog(){
+  openDialog(home:any){
     this.dialogService.open(
       BookComponent,
       {
         width:"250px",
-        data: {}
+        data: home
       }
       )
   }
