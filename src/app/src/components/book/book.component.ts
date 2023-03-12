@@ -1,7 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-interface Home {title:string, location:string, image:string}
+interface Home {
+  title:string,
+  location:string,
+  image:string,
+  price:string
+};
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',

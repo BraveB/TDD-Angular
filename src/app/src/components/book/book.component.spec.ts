@@ -3,17 +3,19 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { BookComponent } from './book.component';
 import data from '../../../../assets/homes.json';
-
 describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
   let dialogData;
+  const [home] = data;
+  const element = (selector:string) =>
+    fixture.nativeElement.querySelector(selector);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ BookComponent ],
       providers:[{
-        provide: MAT_DIALOG_DATA, useValue: data[0]
+        provide: MAT_DIALOG_DATA, useValue: home
       }]
     })
       .compileComponents();
@@ -26,10 +28,19 @@ describe('BookComponent', () => {
   });
 
   it('should show title', () => {
-    expect(fixture.nativeElement.querySelector('[data-test="title"]').textContent).toContain('Home 1');
+    expect(element('[data-test="title"]').textContent).toContain(home.title);
   });
-  // should show price
-  // should show check in date field
+
+  it('should show price', () => {
+    expect(element('[data-test="price"]').textContent).toContain(home.price);
+  });
+
+  it('should show check in date field', () => {
+    expect(element('[data-test="check-in"]')).toBeTruthy();
+  });
+  it('should show check in date field', () => {
+    expect(element('[data-test="check-out"]')).toBeTruthy();
+  });
   // should show check in date field
   // should show total
   // should book home after clicking the book button
