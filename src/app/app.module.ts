@@ -1,7 +1,11 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './src/components/header/header.component';
@@ -20,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   entryComponents:[BookComponent],
   providers: [],
