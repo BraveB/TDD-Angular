@@ -82,6 +82,9 @@ describe('BookComponent', () => {
     fixture.detectChanges();
     expect(element('[data-test="total"]').textContent).toContain("Total: $375");
   });
+  it('should show total as -- if there is not valid dates', () => {
+    expect(element('[data-test="total"]').textContent).toContain("Total: --");
+  });
 
   it('should book home after clicking the book button', () => {
     // user enters check in date 12/20/19

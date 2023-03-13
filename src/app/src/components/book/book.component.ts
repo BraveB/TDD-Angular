@@ -34,7 +34,8 @@ export class BookComponent implements OnInit {
   calculateTotal( checkIn:string, checkOut:string){
     const checkInDate = moment(checkIn, 'MM-DD-YYYY');
     const checkOutDate = moment(checkOut, 'MM-DD-YYYY');
-    return checkOutDate.diff(checkInDate, 'days') * Number(this.data.price);
+    const total = checkOutDate.diff(checkInDate, 'days') * Number(this.data.price);
+    return Number.isNaN(total) ? "--": `$${total}`;
   }
 
   bookHome(){
