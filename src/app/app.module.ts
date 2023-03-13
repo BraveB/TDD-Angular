@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './src/components/header/header.component';
 import { HomeComponent } from './src/components/home/home.component';
 import { BookComponent } from './src/components/book/book.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BookComponent } from './src/components/book/book.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   entryComponents:[BookComponent],
   providers: [],
