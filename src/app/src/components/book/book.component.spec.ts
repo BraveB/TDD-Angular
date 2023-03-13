@@ -1,7 +1,12 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core'
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BookComponent } from './book.component';
 import data from '../../../../assets/homes.json';
@@ -22,7 +27,14 @@ describe('BookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[FormsModule],
+      imports:[
+        FormsModule,
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule
+      ],
       declarations: [ BookComponent ],
       providers:[
         { provide: MAT_DIALOG_DATA, useValue: home },
